@@ -16,4 +16,4 @@ const MENU_ITEMS = {
     DOWNLOAD: 'DOWNLOAD'
 }
 
-export {COLORS, MENU_ITEMS};
+export {COLORS, MENU_ITEMS}

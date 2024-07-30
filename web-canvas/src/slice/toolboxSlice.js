@@ -15,8 +15,8 @@ const initialState = {
     [MENU_ITEMS.DOWNLOAD]: {},
 }
 
-export const toolbarSlice = createSlice({
-    name: 'toolbar',
+export const toolboxSlice = createSlice({
+    name: 'toolbox',
     initialState,
     reducers: {
         changeColor: (state, action) => {
@@ -28,6 +28,6 @@ export const toolbarSlice = createSlice({
     }
 })
 
-export const {changeColor, changeBrushSize} = toolbarSlice.actions
+export const {changeColor, changeBrushSize} = toolboxSlice.actions
 
-export default toolbarSlice.reducer
+export default toolboxSlice.reducer

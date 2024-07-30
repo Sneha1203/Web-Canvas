@@ -3,16 +3,16 @@ import cx from 'classnames';
 
 import styles from './index.module.css'
 
-import { COLORS, MENU_ITEMS } from '../../constants'
-import {changeColor, changeBrushSize } from '../../slice/toolbarSlice'
-import { socket } from '@/socket';
+import { COLORS, MENU_ITEMS } from '@/constants'
+import {changeColor, changeBrushSize } from '../../slice/toolboxSlice'
+import { socket } from "@/socket";
 
-const Toolbar = () => {
+const Toolbox = () => {
     const dispatch = useDispatch()
     const activeMenuItem = useSelector((state) => state.menu.activeMenuItem)
     const showStrokeToolOption = activeMenuItem === MENU_ITEMS.PENCIL
     const showBrushToolOption = activeMenuItem === MENU_ITEMS.PENCIL || activeMenuItem === MENU_ITEMS.ERASER
-    const {color, size} = useSelector((state) => state.toolbar[activeMenuItem])
+    const {color, size} = useSelector((state) => state.toolbox[activeMenuItem])
 
     const updateBrushSize = (e) => {
         dispatch(changeBrushSize({item: activeMenuItem, size: e.target.value}))
@@ -24,7 +24,7 @@ const Toolbar = () => {
         socket.emit('changeConfig', {color: newColor, size })
     }
     
-    return (<div className={styles.toolbarContainer}>
+    return (<div className={styles.toolboxContainer}>
         {showStrokeToolOption && <div className={styles.toolItem}>
             <h4 className={styles.toolText}>Stroke Color</h4>
             <div className={styles.itemContainer}>
@@ -45,4 +45,4 @@ const Toolbar = () => {
     </div>)
 }
 
-export default Toolbar;
+export default Toolbox;

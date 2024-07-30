@@ -5,7 +5,7 @@ import { faPencil, faEraser, faRotateLeft, faRotateRight, faFileArrowDown } from
 
 import styles from './index.module.css'
 
-import { menuItemClick, actionItemClick } from '@/slice/menuSlice'
+import { menuItemClick, actionItemClick } from '../../slice/menuSlice'
 
 import { MENU_ITEMS } from '@/constants'
 const Menu = () => {
