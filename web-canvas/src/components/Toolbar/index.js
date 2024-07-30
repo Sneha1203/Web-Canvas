@@ -5,7 +5,8 @@ import styles from './index.module.css'
 
 import { COLORS, MENU_ITEMS } from '../../constants'
 import {changeColor, changeBrushSize } from '../../slice/toolbarSlice'
-import { socket } from 'socket.io-client';
+import { io } from "socket.io-client";
+const socket = io();
 
 const Toolbar = () => {
     const dispatch = useDispatch()
@@ -16,10 +17,12 @@ const Toolbar = () => {
 
     const updateBrushSize = (e) => {
         dispatch(changeBrushSize({item: activeMenuItem, size: e.target.value}))
+        socket.emit('changeConfig', {color, size: e.target.value })
     }
 
     const updateColor = (newColor) => {
         dispatch(changeColor({item: activeMenuItem, color: newColor}))
+        socket.emit('changeConfig', {color: newColor, size })
     }
     
     return (<div className={styles.toolbarContainer}>
