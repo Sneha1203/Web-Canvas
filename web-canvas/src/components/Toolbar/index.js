@@ -5,8 +5,7 @@ import styles from './index.module.css'
 
 import { COLORS, MENU_ITEMS } from '../../constants'
 import {changeColor, changeBrushSize } from '../../slice/toolbarSlice'
-import { io } from "socket.io-client";
-const socket = io();
+import { socket } from '@/socket';
 
 const Toolbar = () => {
     const dispatch = useDispatch()

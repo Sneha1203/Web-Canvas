@@ -6,8 +6,7 @@ import styles from './index.module.css';
 import { MENU_ITEMS } from '@/constants'
 import { actionItemClick } from '@/slice/menuSlice'
 
-import { io } from "socket.io-client";
-const socket = io();
+import { socket } from '@/socket';
 
 const Board = () => {
     const dispatch = useDispatch()
